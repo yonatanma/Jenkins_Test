@@ -7,7 +7,7 @@ pipeline {
         MAJOR = '1'
         MINOR = '0'
         //Orchestrator Services
-        UIPATH_ORCH_URL = "https://hms3rpauipath.hms.co.il"
+        UIPATH_ORCH_URL = "https://hms3rpauipath.hms.co.il/"
         UIPATH_ORCH_TENANT_NAME = "defaulttest"
         UIPATH_ORCH_FOLDER_NAME = "Yonatan"
     }
