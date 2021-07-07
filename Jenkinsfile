@@ -61,7 +61,7 @@ pipeline {
                 orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
 		environments: '',
                 folderName: "${UIPATH_ORCH_FOLDER_NAME}",
-				credentials: UserPass('39861217-03e7-451f-beed-9c91b2a95a03')
+				credentials: UserPass('bc03d97e-e717-4413-8ed8-04378901df91')
 
 
         )
