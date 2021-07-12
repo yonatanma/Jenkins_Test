@@ -8,7 +8,7 @@ pipeline {
         MINOR = '0'
         //Orchestrator Services
         UIPATH_ORCH_URL = "https://hms3rpauipath.hms.co.il/"
-        UIPATH_ORCH_TENANT_NAME = "defaulttest"
+        UIPATH_ORCH_TENANT_NAME = "DEFAULTTEST"
         UIPATH_ORCH_FOLDER_NAME = "Yonatan"
     }
 
@@ -59,9 +59,8 @@ pipeline {
                 packagePath: "Output\\${env.BUILD_NUMBER}",
                 orchestratorAddress: "${UIPATH_ORCH_URL}",
                 orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
-		environments: '',
                 folderName: "${UIPATH_ORCH_FOLDER_NAME}",
-				credentials: UserPass('bc03d97e-e717-4413-8ed8-04378901df91')
+		credentials: UserPass('bc03d97e-e717-4413-8ed8-04378901df91')
 
 
         )
