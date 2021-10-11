@@ -136,9 +136,6 @@
                   </Transition.To>
                 </Transition>
               </State.Transitions>
-              <State.Variables>
-                <Variable x:TypeArguments="ui:Browser" Name="Browser" />
-              </State.Variables>
             </State>
           </Transition.To>
         </Transition>
@@ -148,6 +145,7 @@
     <x:Reference>__ReferenceID1</x:Reference>
     <StateMachine.Variables>
       <Variable x:TypeArguments="x:String" Name="Result_Path" />
+      <Variable x:TypeArguments="ui:Browser" Name="Browser" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>
