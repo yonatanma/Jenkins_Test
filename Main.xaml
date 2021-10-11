@@ -67,7 +67,7 @@
         <av:PointCollection x:Key="ConnectorLocation">290,77.5 290,127.5</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <State x:Name="__ReferenceID2" DisplayName="Init" sap:VirtualizedContainerService.HintSize="380,472" sap2010:WorkflowViewState.IdRef="State_1">
+    <State x:Name="__ReferenceID2" DisplayName="Init" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_1">
       <State.Entry>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Init workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Init.xaml">
           <ui:InvokeWorkflowFile.Arguments>
@@ -94,7 +94,19 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID0" DisplayName="Process" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_2">
+            <State x:Name="__ReferenceID0" DisplayName="Process" sap:VirtualizedContainerService.HintSize="380,472" sap2010:WorkflowViewState.IdRef="State_2">
+              <State.Entry>
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LaunchWebsite workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="LaunchWebsite.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ResultPath">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Result_Path" />
+                    </InArgument>
+                    <OutArgument x:TypeArguments="ui:Browser" x:Key="out_Browser">
+                      <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="Browser" />
+                    </OutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </State.Entry>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">233,239.5</av:Point>
@@ -124,15 +136,18 @@
                   </Transition.To>
                 </Transition>
               </State.Transitions>
+              <State.Variables>
+                <Variable x:TypeArguments="ui:Browser" Name="Browser" />
+              </State.Variables>
             </State>
           </Transition.To>
         </Transition>
       </State.Transitions>
-      <State.Variables>
-        <Variable x:TypeArguments="x:String" Name="Result_Path" />
-      </State.Variables>
     </State>
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
+    <StateMachine.Variables>
+      <Variable x:TypeArguments="x:String" Name="Result_Path" />
+    </StateMachine.Variables>
   </StateMachine>
 </Activity>
