@@ -1,0 +1,102 @@
+[33mcommit 546b0246dbe3be5c564ea92cd3c1ef25b26de81c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: FirstCommit <yonatanm@hms.co.il>
+Date:   Mon Oct 11 16:12:43 2021 +0300
+
+    launch website
+
+[33mcommit dc8333020cf82e161525fb898b2898f3a75b469a[m
+Author: FirstCommit <yonatanm@hms.co.il>
+Date:   Mon Oct 11 16:12:08 2021 +0300
+
+    add launch website
+
+[33mcommit 16c7d9d26ca36b21536db8de84b1cde694a8123b[m
+Author: FirstCommit <yonatanm@hms.co.il>
+Date:   Mon Oct 11 16:06:55 2021 +0300
+
+    Add init to Main
+
+[33mcommit cabb77749efc9ca7829dc3aafac283bf285f34a9[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Thu Aug 26 22:38:39 2021 +0300
+
+    Update Main.xaml
+
+[33mcommit 4d6ddd0cdea73a55cc983fc27bdff82f70f8ae9e[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Thu Aug 26 22:37:49 2021 +0300
+
+    Update Main.xaml
+
+[33mcommit 46399eb6af24bab9641050f301b001d5c063cdde[m
+Merge: 7a0289b 52f0934
+Author: FirstCommit <yonatanm@hms.co.il>
+Date:   Thu Aug 26 22:22:43 2021 +0300
+
+    Marge
+
+[33mcommit 52f09345ec7d4b7e7983d2261d8886cdcf4d56e9[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: FirstCommit <yonatanm@hms.co.il>
+Date:   Thu Aug 26 22:16:43 2021 +0300
+
+    FirstCommit
+
+[33mcommit 7a0289b7047a3a83544773bc0e286a8978fca64b[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Tue Aug 3 13:26:20 2021 +0300
+
+    Update Jenkinsfile
+
+[33mcommit 20485a333987d800a14d3c3c51e6510c66ddca39[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Tue Aug 3 13:24:11 2021 +0300
+
+    Update Jenkinsfile
+
+[33mcommit 15c4e21410b8b106243e54e42c91a5c9cdbe1016[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Mon Jul 12 19:29:04 2021 +0300
+
+    Update TEST.csv
+
+[33mcommit 0cad6d185c90a22643c65d656f07306e3424c73b[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Mon Jul 12 19:18:07 2021 +0300
+
+    Update TEST.csv
+
+[33mcommit 1b077b0d36217afb139e756f797d11d4cbb8fc0d[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Mon Jul 12 19:09:00 2021 +0300
+
+    Update Jenkinsfile
+
+[33mcommit c60f01eddf97daa283ddc4d1d5b5f6c5690dde84[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Wed Jul 7 22:05:22 2021 +0300
+
+    Update Jenkinsfile
+
+[33mcommit f788fd0ae33e88d3da0cd5986690c3b19a96b1f0[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Wed Jun 30 22:38:23 2021 +0300
+
+    Update Jenkinsfile
+
+[33mcommit 13aeb72ba1845300d1bce6e2fb2885449d0136f6[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Wed Jun 30 22:32:36 2021 +0300
+
+    Update Jenkinsfile
+
+[33mcommit 0b37bf37b52dcfaf8fc6f2422cb3a4fce17c6d1b[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Wed Jun 30 22:19:44 2021 +0300
+
+    Update Main.xaml
+
+[33mcommit a2ad3179b99cd97f429cf6f982e09b1cb564dfb9[m
+Author: yonatanma <75163217+yonatanma@users.noreply.github.com>
+Date:   Wed Jun 30 22:12:02 2021 +0300
+
+    Initial commit
