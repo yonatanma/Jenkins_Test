@@ -54,7 +54,6 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID2}" DisplayName="Main1" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -71,9 +70,7 @@
       <State.Entry>
         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Init workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Init.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_ResultPath">
-              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="Result_Path" />
-            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_ResultPath">[Result_Path]</OutArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </State.Entry>
@@ -94,16 +91,12 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID0" DisplayName="Process" sap:VirtualizedContainerService.HintSize="380,472" sap2010:WorkflowViewState.IdRef="State_2">
+            <State x:Name="__ReferenceID0" DisplayName="Process" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_2">
               <State.Entry>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LaunchWebsite workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="LaunchWebsite.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ResultPath">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Result_Path" />
-                    </InArgument>
-                    <OutArgument x:TypeArguments="ui:Browser" x:Key="out_Browser">
-                      <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="Browser" />
-                    </OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ResultPath">[Result_Path]</InArgument>
+                    <OutArgument x:TypeArguments="ui:Browser" x:Key="out_Browser">[Browser]</OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </State.Entry>
@@ -118,7 +111,7 @@
                 <Transition DisplayName="T2" sap2010:WorkflowViewState.IdRef="Transition_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">293.3,300.5 293.3,330.5 353.5,330.5 353.5,389.5</av:PointCollection>
+                      <av:PointCollection x:Key="ConnectorLocation">293.3,300.5 293.3,330.5 293.5,330.5 293.5,389.5</av:PointCollection>
                       <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">58</x:Int32>
                     </scg:Dictionary>
@@ -127,7 +120,7 @@
                     <State x:Name="__ReferenceID1" DisplayName="End Process" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_3" IsFinal="True">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">253,389.5</av:Point>
+                          <av:Point x:Key="ShapeLocation">193,389.5</av:Point>
                           <av:Size x:Key="ShapeSize">134,61</av:Size>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
