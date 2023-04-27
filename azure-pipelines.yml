@@ -56,7 +56,7 @@ stages:
 # Note that this stage has no environment defined, and won't have approvals.
 # For Test environment approvals, update this to look like the Prod stage, but with using the Test environment.
 - stage: DeployToTest
-  condition: and(succeeded('Build'), startsWith(variables['Build.SourceBranchName'], 'development'))  # Only run if the packaging succeeded and we are on a development* branch.
+  condition: and(succeeded('Build'), startsWith(variables['Build.SourceBranchName'], 'master'))  # Only run if the packaging succeeded and we are on a development* branch.
   jobs:
   - job: DeployToTestJob
     pool: Default  # Update this if using dedicated build pool
