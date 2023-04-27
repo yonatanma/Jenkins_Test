@@ -1,33 +1,73 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# Staged pipeline with an approval process for production releases.
+#
+# Approvals are not defined here, but rather tied to the environment.
+#
+# As is, this pipeline template will deploy to the DEV environment on commits to any developement* branch without approvals,
+# will deploy to the UAT environment on commits to any release* branch without approvals,
+# and will deploy to the Prod environment on commits to the master branch, after approval.
 
-trigger:
-- master
+parameters:
+# The full path to the folder containing the project.json file for this pipeline
+- name: 'projectPath'
+  default: '.'
+  type: string
+# The name of the folder to deploy the package to.
+- name: 'folderName'
+  default: 'Root/YonatanM/ACME'
+  type: string
+# Either AutoVersion to generate a build number or CurrentVersion to match the project.json version.
+- name: 'versioningStrategy'
+  default: 'CurrentVersion'
+  type: string
+# The environments to update the package version to the deployed version.
+# Not required for modern folders or if you do not want to update the package version.
+- name: 'environments'
+  default: ''
+  type: string
+# The name of the testSet to be executed
+- name: 'testSet'
+  default: 'Azure.Devops_Tests'
+  type: string
 
-pool:
-  UiPath
+# This pipeline is broken into stages for the approval functionality. Stages are ran independantly, which means the pipeline can pause until the approval is received.
+stages:
+# Build the nuget package.
+- stage: Build
+  jobs:
+  - job: BuildJob
+    pool:  Default # Update this if using dedicated build pool
+    workspace:
+      clean: all
+    steps:
+    - script: 'echo project path: ${{ parameters.projectPath }}, folder name: ${{ parameters.folderName }}, versioning strategy: ${{ parameters.versioningStrategy }}, environments: ${{ parameters.environments }}'
+      displayName: Log parameters
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+    - task: UiPathPack@3
+      inputs:
+        versionType : 'CurrentVersion'
+        projectJsonPath: '$(Build.SourcesDirectory)\${{ parameters.projectPath }}'
+        orchestratorConnection: 'HMS_ORCH'  # Update this to a service connection for your Orchestrator.
+        outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+    # Publish the nuget package for later stages.
+    - publish: $(Build.ArtifactStagingDirectory)\Output
+      artifact: drop
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-- task: UiPathPack@3
-  inputs:
-    versionType: 'CurrentVersion'
-    projectJsonPath: '$(Build.SourcesDirectory)\project.json'
-    orchestratorConnection: 'HMS_ORCH'
-    outputPath: '$(Build.ArtifactStagingDirectory)'
-- publish: $(Build.ArtifactStagingDirectory)
-  artifact: drop
-- task: UiPathDeploy@3
-  inputs:
-    orchestratorConnection: 'HMS_ORCH'
-    packagesPath: '$(Pipeline.Workspace)\drop\'
-    folderName: 'Root/YonatanM/ACME'
-    traceLevel: 'Information'
+# Deploy to the Test environment on commits to any release* branch.
+# Note that this stage has no environment defined, and won't have approvals.
+# For Test environment approvals, update this to look like the Prod stage, but with using the Test environment.
+- stage: DeployToTest
+  condition: and(succeeded('Build'), startsWith(variables['Build.SourceBranchName'], 'development'))  # Only run if the packaging succeeded and we are on a development* branch.
+  jobs:
+  - job: DeployToTestJob
+    pool: Default  # Update this if using dedicated build pool
+    workspace:
+      clean: all
+    steps:
+    - download: current
+      artifact: drop
+    - task: UiPathInstallPlatform@3  # This installs required exes. Not necessary if using a dedicated build machine.
+    - task: UiPathDeploy@3
+      inputs:
+        orchestratorConnection: 'HMS_ORCH'
+        packagesPath: '$(Pipeline.Workspace)\drop'
+        folderName: ${{ parameters.folderName }}
