@@ -17,3 +17,16 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+- task: UiPathPack@3
+  inputs:
+    versionType: 'CurrentVersion'
+    projectJsonPath: '$(Build.SourcesDirectory)'
+    orchestratorConnection: 'HMS_ORCH'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+    traceLevel: 'Information'
+- task: UiPathDeploy@3
+  inputs:
+    orchestratorConnection: 'HMS_ORCH'
+    packagesPath: '$(Build.SourcesDirectory)'
+    folderName: 'Root/YonatanM/ACME'
+    traceLevel: 'Information'
