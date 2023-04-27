@@ -59,7 +59,7 @@ stages:
   condition: and(succeeded('Build'), startsWith(variables['Build.SourceBranchName'], 'master'))  # Only run if the packaging succeeded and we are on a development* branch.
   jobs:
   - job: DeployToTestJob
-    pool: Default  # Update this if using dedicated build pool
+    pool: UiPath  # Update this if using dedicated build pool
     workspace:
       clean: all
     steps:
